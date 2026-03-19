@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "@super-buzzy/ui/css";
+
+:root {
+  font-family: "Poppins";
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --font-poppins: "Poppins";
+  --font-sg: "Space Grotesk";
+  --font-tn: "Tiny5";
+  --font-hauora: "Hauora";
+  --font-inter: "Inter";
+
+  --color-panel-border: rgba(46, 46, 50, 0.6);
+  --color-panel-bg: #212121;
+  --color-brand: #ffff50;
+
+  --radius-x2: 0.125rem;
+  --radius-x4: 0.25rem;
+  --radius-x6: 0.375rem;
+  --radius-x8: 0.5rem;
+  --radius-x10: 0.625rem;
+  --radius-x12: 0.75rem;
+  --radius-x14: 0.875rem;
+  --radius-x16: 1rem;
+  --radius-x18: 1.125rem;
+  --radius-x20: 1.25rem;
+  --radius-x22: 1.375rem;
+  --radius-x24: 1.5rem;
+  --radius-x26: 1.625rem;
+  --radius-x28: 1.75rem;
+  --radius-x30: 1.875rem;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+}
