@@ -18,3 +18,13 @@ interface ImportMeta {
 
 /** 全局常量（在 vite.config.ts 中通过 define 定义） */
 declare const __APP_ENV__: string;
+
+/** 路由 meta 类型扩展 */
+declare module "vue-router" {
+  interface RouteMeta {
+    /** 页面标题 */
+    title?: string;
+    /** 是否无需登录即可访问 */
+    noAuth?: boolean;
+  }
+}

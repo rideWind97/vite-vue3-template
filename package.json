@@ -9,31 +9,44 @@
     "build:dev": "vite build --mode development",
     "build:analyze": "vite build --mode analyze",
     "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepare": "husky"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
     "axios": "^1.13.6",
+    "pinia": "^3.0.4",
     "tailwindcss": "^4.2.2",
-    "vue": "^3.5.30"
+    "vue": "^3.5.30",
+    "vue-router": "^5.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
+    "@eslint/js": "^10.0.1",
     "@types/node": "^24.12.0",
     "@vitejs/plugin-vue": "^6.0.5",
     "@vue/tsconfig": "^0.9.0",
+    "eslint": "^10.0.3",
+    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "rollup-plugin-visualizer": "^7.0.1",
     "typescript": "~5.9.3",
+    "typescript-eslint": "^8.57.1",
     "unplugin-fonts": "^1.4.0",
     "vite": "^8.0.0",
     "vue-tsc": "^3.2.5"
   },
   "lint-staged": {
-    "*.{ts,tsx,vue,js,jsx,css,md,json}": [
+    "*.{ts,tsx,vue,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json}": [
       "prettier --write"
     ]
   }

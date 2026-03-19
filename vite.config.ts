@@ -49,8 +49,7 @@ export default defineConfig(({ mode }) => {
     // 指定环境变量文件目录
     envDir: "./env",
 
-    // 使用 oxc 替代已废弃的 esbuild 进行代码转换
-    esbuild: false,
+    // Vite 8 默认使用 oxc 进行代码转换（无需额外配置）
     oxc: {},
 
     // 开发服务器配置
