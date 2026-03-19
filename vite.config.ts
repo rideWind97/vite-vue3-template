@@ -1,10 +1,21 @@
 import path from "node:path";
+import { execSync } from "node:child_process";
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import unFonts from "unplugin-fonts/vite";
 import { googleFontsFullStyles } from "./src/assets/js/fonts";
 import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from "rollup-plugin-visualizer";
+import pkg from "./package.json" with { type: "json" };
+
+// 获取 Git commit hash（构建时执行一次）
+function getGitCommitHash(): string {
+  try {
+    return execSync("git rev-parse --short HEAD").toString().trim();
+  } catch {
+    return "unknown";
+  }
+}
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -76,6 +87,10 @@ export default defineConfig(({ mode }) => {
     // 定义全局常量（可在业务代码中直接使用）
     define: {
       __APP_ENV__: JSON.stringify(env.VITE_APP_ENV),
+      // 构建版本信息
+      __APP_VERSION__: JSON.stringify(pkg.version),
+      __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+      __GIT_HASH__: JSON.stringify(getGitCommitHash()),
     },
   };
 });

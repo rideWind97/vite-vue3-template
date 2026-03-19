@@ -22,6 +22,12 @@ declare global {
 
   /** 全局常量（在 vite.config.ts 中通过 define 定义） */
   const __APP_ENV__: string;
+  /** 应用版本号（来自 package.json version） */
+  const __APP_VERSION__: string;
+  /** 构建时间（ISO 格式） */
+  const __BUILD_TIME__: string;
+  /** Git commit hash（短） */
+  const __GIT_HASH__: string;
 }
 
 /** 路由 meta 类型扩展 */
